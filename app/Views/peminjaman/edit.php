@@ -11,34 +11,16 @@
         <div class="card">
             <div class="card-header">
                 <h4> Data Peminjaman</h4>
-
             </div>
             <div class="card-body">
                 <form action="../update/<?= $peminjam['id_peminjaman']; ?>" method="post">
                     <?= csrf_field(); ?>
                     <div class="form-row">
-
-
                         <input type="hidden" class="form-control datetimepicker" id="tanggal" name="tanggal" value="<?= $peminjam['tanggal']; ?>">
-
-
-
-
                         <input type="hidden" class="form-control" id="no_rm" name="no_rm" value="<?= $peminjam['no_rm']; ?>">
-
-
-
                         <input type="hidden" class="form-control" id="nama_pasien" name="nama_pasien" value="<?= $peminjam['nama_pasien']; ?>" placeholder="">
-
-
-
-
                         <input type="hidden" class="form-control" id="nama_peminjam" name="nama_peminjam" value="<?= $peminjam['nama_peminjam']; ?>" placeholder="">
-
-
-
                         <input type="hidden" id="keperluan" value="<?= $peminjam['keperluan']; ?>" name=" keperluan">
-
 
                         <div class="form-group col-md-2">
                             <label for="status">Status Dokumen</label>
@@ -63,6 +45,7 @@
         </div>
     </div>
 </section>
+
 <script>
     $(document).ready(function() {
         $("select").change(function() {

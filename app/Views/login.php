@@ -26,7 +26,7 @@
             <div class="d-flex flex-wrap align-items-stretch">
                 <div class="col-lg-4 col-md-6 col-12 order-lg-1 min-vh-100 order-2 bg-white">
                     <div class=" p-4 m-1">
-                        <h4 class="text-dark font-weight-normal">Welcome to <span class="font-weight-bold">Siped</span></h4>
+                        <h4 class="text-dark font-weight-normal">Welcome to <span class="font-weight-bold">Simped</span></h4>
                         <h5 class="text-dark font-weight-normal"><span class="font-weight-bold">Sistem Informasi Pengembalian Dokumen Rekam Medis</span></h5>
 
 
@@ -61,7 +61,7 @@
                         </form>
 
                         <div class="text-center mt-5 text-small">
-                            Copyright &copy; nsrl. Made with 💙
+                            Copyright &copy; rmkoesma. Made with 💙
 
                         </div>
                         <br>
@@ -76,8 +76,7 @@
                         <br>
                         <br>
                         <br>
-                        <br>
-                        <br>
+
 
 
                     </div>

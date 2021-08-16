@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>SIPED RM</title>
+    <title>SIMPED RM</title>
 
     <!-- General CSS Files -->
     <link rel="stylesheet" href="<?= base_url() ?>/public/template/node_modules/bootstrap/dist/css/bootstrap.min.css">
@@ -82,7 +82,7 @@
             <div class="main-sidebar">
                 <aside id="sidebar-wrapper">
                     <div class="sidebar-brand">
-                        <a href="<?= site_url('home') ?>">SIPED</a>
+                        <a href="<?= site_url('home') ?>">SIMPED</a>
                     </div>
                     <div class="sidebar-brand sidebar-brand-sm">
                         <a href="<?= site_url('home') ?>">SPDRM </a>

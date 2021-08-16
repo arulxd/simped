@@ -67,7 +67,7 @@ class Laporantest extends BaseController
                 'title' =>  "Laporan Data Peminjaman Dokumen  Per Bulan",
                 'subtitle' => "Dari bulan : " . $nama_bulan[$bulanawal] . ' Tahun : ' . $tahun2,
                 'status_dokumen' => "Status Dokumen : " . 'Semua',
-                'datafilter' => $this->laporantestModel->filterbybulan($tahun2, $bulanawal, $status)
+                'datafilter' => $this->laporantestModel->filterbybulansemua($tahun2, $bulanawal)
             ];
 
             return view('laporan/print_laporan_data_kembali', $data);

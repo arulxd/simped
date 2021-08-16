@@ -25,7 +25,7 @@
 
 
         <!-- DataTables Example -->
-        <div class="card mb-3" id="cardbayar">
+        <div class="card mb-3" id="">
           <div class="card-header">
             <center>
               <h3><?php echo $title ?> </h3>
@@ -37,7 +37,7 @@
 
             <div class="card-body">
               <div class="table-responsive">
-                <table class="table table-bordered" id="tabelbayar" width="100%" cellspacing="0">
+                <table class="table table-bordered" id="" ellspacing="0">
                   <thead>
                     <tr>
                       <th>No</th>

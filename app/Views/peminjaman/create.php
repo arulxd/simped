@@ -27,7 +27,7 @@
                             <div class="form-row">
                                 <div class="form-group col-md-4">
                                     <label>Tanggal Peminjaman</label>
-                                    <input type="text" class="form-control datepicker" id="tanggal" name="tanggal" required>
+                                    <input type="text" class="form-control datepicker" data-format="dd-mm-yyyy" id="tanggal" name="tanggal" required>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="norm">No. Rekam Medis</label>
@@ -116,6 +116,7 @@
         });
     }, 3000);
 </script>
+
 
 
 <?= $this->endSection() ?>

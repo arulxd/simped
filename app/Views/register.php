@@ -48,14 +48,26 @@
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-bordered table-md">
-                            <tr>
-                                <th>#</th>
-                                <th>Nama</th>
-                                <th>Level User</th>
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Nama</th>
+                                    <th>Level User</th>
+                                </tr>
 
-
-                            </tr>
-
+                            </thead>
+                            <tbody>
+                                <?php $i = 1; ?>
+                                <?php foreach ($user as $k) : ?>
+                                    <tr>
+                                        <td>
+                                            <?= $i++; ?>
+                                        </td>
+                                        <td><?= $k['username']; ?></td>
+                                        <td><?= $k['level']; ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
                         </table>
                     </div>
                 </div>

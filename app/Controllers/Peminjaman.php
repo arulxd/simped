@@ -8,8 +8,6 @@ use App\Models\dashboardModel;
 class Peminjaman extends BaseController
 {
 
-    // protected $peminjamanModel;
-
     public function __construct()
     {
 
@@ -40,7 +38,7 @@ class Peminjaman extends BaseController
         // $peminjamanModel = new peminjamanModel();
         //  $peminjaman = $peminjamanModel->findAll();
         //  dd($peminjaman);
-        header('Content-Type: application/json');
+
         return view('peminjaman/list', $data);
     }
 
@@ -84,13 +82,15 @@ class Peminjaman extends BaseController
             'peminjam' => $this->peminjamanModel->getDetail($id)
         ];
 
-        return view('/peminjaman/edit', $data);
+        return view('/peminjaman/editfulldata', $data);
     }
 
-    public function update($id)
+    public function update()
     {
-        $this->peminjamanModel->save([
-            'id_peminjaman' => $id,
+        $id = $this->request->getVar('id_peminjaman');
+
+        $data = [
+
             'tanggal' => $this->request->getVar('tanggal'),
             'tanggal_kembali' => $this->request->getVar('tanggal_kembali'),
             'no_rm' => $this->request->getVar('no_rm'),
@@ -98,6 +98,26 @@ class Peminjaman extends BaseController
             'nama_peminjam' => $this->request->getVar('nama_peminjam'),
             'keperluan' => $this->request->getVar('keperluan'),
             'status' => $this->request->getVar('status')
+        ];
+
+        $this->peminjamanModel->update_data($data, $id);
+
+        session()->setFlashdata('pesan', 'Data Berhasil Diubah');
+
+        return redirect()->to('peminjaman/list');
+    }
+    public function updatefull($id)
+    {
+
+        $this->peminjamanModel->save([
+            'id_peminjaman' => $id,
+            'tanggal' => $this->request->getVar('tanggal'),
+            'no_rm' => $this->request->getVar('no_rm'),
+            'nama_pasien' => $this->request->getVar('nama_pasien'),
+            'nama_peminjam' => $this->request->getVar('nama_peminjam'),
+            'keperluan' => $this->request->getVar('keperluan'),
+            'status' => $this->request->getVar('status'),
+
         ]);
 
         session()->setFlashdata('pesan', 'Data Berhasil Diubah');

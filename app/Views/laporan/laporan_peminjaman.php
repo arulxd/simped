@@ -19,12 +19,12 @@
 
 
 
-                            <div class="row form-group">
+                            <div class="row form-group" required>
                                 <div class="col col-md-2">
                                     <label for="select" class=" form-control-label">Jenis Laporan</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <select class="form-control" id="nilaifilter" name="nilaifilter">
+                                    <select class="form-control" id="nilaifilter" name="nilaifilter" required>
                                         <option value="1" name="nilaifilter">Data Peminjaman Dokumen</option>
                                         <option value="3" name="nilaifilter">Jumlah Peminjaman Dokumen</option>
                                     </select>
@@ -45,7 +45,7 @@
                             <div class="row col-12 form-group" id="divbulan">
                                 <div class="col-md-2 col-form-label">Bulan</div>
                                 <div class="col-md-4">
-                                    <select id="bulanawal" name="bulanawal" class="form-control">
+                                    <select id="bulanawal" name="bulanawal" class="form-control" required>
                                         <option value="">Pilih</option>
                                         <option value="1">Januari</option>
                                         <option value="2">Februari</option>

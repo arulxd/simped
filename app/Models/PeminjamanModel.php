@@ -22,4 +22,8 @@ class peminjamanModel extends Model
             return $this->where(['id_peminjaman' => $id])->first();
         }
     }
+    public function update_data($data, $id)
+    {
+        return $this->db->table('peminjaman')->update($data, ['id_peminjaman' => $id]);
+    }
 }

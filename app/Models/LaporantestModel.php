@@ -22,6 +22,13 @@ class laporantestModel extends Model
 
         return $query->getResult();
     }
+    public function filterbybulansemua($tahun2, $bulanawal)
+    {
+
+        $query = $this->db->query("SELECT * from peminjaman where  YEAR(tanggal) = '$tahun2' and MONTH(tanggal) = '$bulanawal' and status ORDER BY tanggal ASC ");
+
+        return $query->getResult();
+    }
 
     function filterbytahun($tahun2, $status)
     {

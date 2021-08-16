@@ -8,7 +8,11 @@
         <h1 style="font-size: 18px;">Daftar Peminjaman Dokumen Rekam Medis</h1>
 
     </div>
-    <?php if (session()->getFlashdata('pesan')) : ?>
+    <?php
+
+    use function PHPSTORM_META\type;
+
+    if (session()->getFlashdata('pesan')) : ?>
         <div class="alert alert-success" role="alert">
             <?= session()->getFlashdata('pesan'); ?>
         </div>
@@ -64,12 +68,17 @@
                                             <td>
 
 
-                                                <button type="button" data-id=" <?= $k['id_peminjaman']; ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#TableDenda"><i class="fas fa-check"></i> </button>
 
-                                                <!-- <a href="detail/<?= $k['id_peminjaman']; ?>" class="btn btn-sm btn-primary">Lihat</a> -->
+                                                <?php if ($k['status'] == 'dikembalikan') {
+                                                    echo '<a href="#" class="btn btn-sm  btn-danger btn-light disabled">Kembali</a>';
+                                                } else {
+                                                ?> <button type="button" id="btn-edit" data-id_peminjaman="<?= $k['id_peminjaman']; ?>" data-no_rm="<?= $k['no_rm']; ?>" data-status="<?= $k['status']; ?>" data-nama_pasien="<?= $k['nama_pasien']; ?>" data-nama_peminjam="<?= $k['nama_peminjam']; ?>" data-tanggal="<?= $k['tanggal']; ?>" data-keperluan="<?= $k['keperluan']; ?>" data-tanggal_kembali="<?= $k['tanggal_kembali']; ?>" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal1"> Kembali </button>
+                                                <?php } ?>
+
+                                                <a href="edit/<?= $k['id_peminjaman']; ?>" class="btn btn-sm  btn-danger btn-dark">Edit</a>
 
                                                 <?php if (session()->get('level') == 1) { ?>
-                                                    <a href="delete/<?= $k['id_peminjaman']; ?>" class="btn btn-sm  btn-danger btn-delete"><i class="fas fa-trash"></i></a>
+                                                    <a href="delete/<?= $k['id_peminjaman']; ?>" class="btn btn-sm  btn-danger btn-delete"> Hapus</a>
                                                 <?php } ?>
                                             </td>
                                         </tr>
@@ -84,7 +93,7 @@
     </div>
 </section>
 
-<div class="modal" tabindex="-1" role="dialog" id="TableDenda">
+<div class="modal" tabindex="-1" role="dialog" id="modal1">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -94,9 +103,10 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="../peminjaman/update/<?= $k['id_peminjaman']; ?>" method="post">
+                <form action="<?= base_url('peminjaman/update/'); ?>" method="post">
+                    <input type="hidden" class="form-control" id="id_peminjaman" name="id_peminjaman" value="<?= $k['id_peminjaman']; ?>">
                     <input type="hidden" class="form-control datetimepicker" id="tanggal" name="tanggal" value="<?= $k['tanggal']; ?>">
-                    <input type="hidden" class="form-control" id="no_rm" name="no_rm" value="<?= $k['no_rm']; ?>">
+                    <input type="text" class="form-control" id="no_rm" name="no_rm" value="<?= $k['no_rm']; ?>" readonly>
                     <input type="hidden" class="form-control" id="nama_pasien" name="nama_pasien" value="<?= $k['nama_pasien']; ?>" placeholder="">
                     <input type="hidden" class="form-control" id="nama_peminjam" name="nama_peminjam" value="<?= $k['nama_peminjam']; ?>" placeholder="">
                     <input type="hidden" id="keperluan" value="<?= $k['keperluan']; ?>" name=" keperluan">
@@ -121,6 +131,19 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(document).on('click', '#btn-edit', function() {
+        $('.modal-body #id_peminjaman').val($(this).data('id_peminjaman'));
+        $('.modal-body #tanggal').val($(this).data('tanggal'));
+        $('.modal-body #no_rm').val($(this).data('no_rm'));
+        $('.modal-body #nama_pasien').val($(this).data('nama_pasien'));
+        $('.modal-body #nama_peminjam').val($(this).data('nama_peminjam'));
+        $('.modal-body #status').val($(this).data('status' == 'dikembalikan'));
+        $('.modal-body #keperluan').val($(this).data('keperluan'));
+        $('.modal-body #tanggal_kembali').val($(this).data('tanggal_kembali'));
+    })
+</script>
 
 
 <script>

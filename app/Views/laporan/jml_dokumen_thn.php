@@ -36,13 +36,13 @@
                     <div class="card-body card-block">
 
                         <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="tabelbayar" width="100%" cellspacing="0">
+                            <div class="table-responsive col-4">
+                                <table class="table table-sm table-bordered" id="">
                                     <thead>
                                         <tr>
-                                            <th>No</th>
-                                            <th>tahun</th>
-                                            <th>jumlah Dokumen</th>
+                                            <th class="col-sm-1">No</th>
+                                            <th class="col-sm-1">tahun</th>
+                                            <th class="col-sm-1">jumlah Dokumen</th>
                                         </tr>
                                     </thead>
                                     <?php $i = 1; ?>
