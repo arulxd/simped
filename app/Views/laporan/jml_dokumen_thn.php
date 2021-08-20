@@ -17,27 +17,20 @@
 
 <body>
     <div>
-
         <div id="content-wrapper" style="margin-top:50px">
-
             <div class="container-fluid">
-
-
-
-                <!-- DataTables Example -->
                 <div class="card mb-3" id="cardbayar">
                     <div class="card-header">
                         <center>
-                            <h3><?php echo $title ?> </h3>
-                            <h4><?php echo $subtitle ?> </h4>
-                            <h4><?php echo $status_dokumen ?> </h4>
+                            <h4><?php echo $title ?> </h4>
+                            <h5><?php echo $subtitle ?> </h5>
+                            <h5><?php echo $status_dokumen ?> </h5>
                         </center>
                     </div>
                     <div class="card-body card-block">
-
                         <div class="card-body">
-                            <div class="table-responsive col-4">
-                                <table class="table table-sm table-bordered" id="">
+                            <div class="table-responsive col-4 mx-auto w-auto">
+                                <table class="table table-sm table-bordered " id="">
                                     <thead>
                                         <tr>
                                             <th class="col-sm-1">No</th>

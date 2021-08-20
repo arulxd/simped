@@ -5,7 +5,7 @@
 
 <section class="section">
     <div class="section-header ">
-        <h1 class="space" style="font-size: 18px;">Formulir Peminjaman Dokumen Rekam Medis</h1>
+        <h1 class="" style="font-size: 18px;">Formulir Peminjaman Dokumen Rekam Medis</h1>
     </div>
     <div class="row">
         <div class="col-12 col-md-7 col-lg-6">
@@ -18,9 +18,8 @@
                                 <?= session()->getFlashdata('pesan'); ?>
                             </div>
                         <?php endif; ?>
-
-
                     </div>
+
                     <div class="card-body">
                         <form action="peminjaman/save" method="post">
                             <?= csrf_field(); ?>
@@ -43,14 +42,12 @@
                                     <label for="peminjam">Nama Peminjam</label>
                                     <input type="text" class="form-control" id="nama_peminjam" name="nama_peminjam" placeholder="" required>
                                 </div>
-                                <!-- <div class="form-group col-md-4">
-                                    <label for="keperluan">Keperluan</label>
-                                    <input type="text" class="form-control" id="keperluan" name="keperluan" placeholder="" required>
-                                </div> -->
                                 <div class="form-group col-md-4">
                                     <label for="status">Keperluan</label>
                                     <select class="form-control select2" id="keperluan" name="keperluan" required>
                                         <option>Klaim</option>
+                                        <option>Visum</option>
+                                        <option>SKM</option>
                                         <option>lainnya</option>
 
                                     </select>
@@ -86,7 +83,6 @@
                                 <th>Nomor RM</th>
                                 <th>Nama Pasien</th>
                                 <th>Nama Peminjam</th>
-
                             </tr>
                             <tr>
                                 <?php $i = 1; ?>
@@ -99,7 +95,6 @@
                                 <td><?= $k['no_rm']; ?></td>
                                 <td><?= $k['nama_pasien']; ?></td>
                                 <td><?= $k['nama_peminjam']; ?></td>
-
                             </tr>
                         <?php endforeach; ?>
                         </table>

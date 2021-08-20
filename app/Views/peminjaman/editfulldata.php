@@ -17,7 +17,7 @@
                         <form action="../updatefull/<?= $peminjam['id_peminjaman']; ?>" method="post">
                             <?= csrf_field(); ?>
                             <div class="form-row">
-                                <div class="form-group">
+                                <div class="form-group col-md-4">
                                     <label>Tanggal Peminjaman</label>
                                     <input type="text" class="form-control datepicker" id="tanggal" name="tanggal" value="<?= $peminjam['tanggal']; ?>" required>
                                 </div>
@@ -41,6 +41,8 @@
                                     <label for="status">Keperluan</label>
                                     <select class="form-control select" id="keperluan" value="<?= $peminjam['keperluan']; ?>" name=" keperluan" required>
                                         <option value="klaim">klaim</option>
+                                        <option value="visum">Visum</option>
+                                        <option value="SKM">SKM</option>
                                         <option value="lainnya">lainnya</option>
                                     </select>
                                 </div>

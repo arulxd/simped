@@ -80,7 +80,7 @@ class Laporantest extends BaseController
                 'subtitle' => "Bulan : " . $nama_bulan[$bulanawal] . ' Tahun : ' . $tahun2,
                 'status_dokumen' => "Status Dokumen : " . 'Semua',
                 'bulan' => $nama_bulan[$bulanawal],
-                'datafilter' => $this->laporantestModel->jml_peminjaman_bln($tahun2, $bulanawal, $status)
+                'datafilter' => $this->laporantestModel->jml_peminjaman_bln_semua($tahun2, $bulanawal)
             ];
 
             return view('laporan/jml_dokumen_bln', $data);

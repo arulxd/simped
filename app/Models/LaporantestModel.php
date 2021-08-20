@@ -57,4 +57,9 @@ class laporantestModel extends Model
 
         return $this->db->table('peminjaman')->where('year(tanggal)', $tahun2)->where('month(tanggal)', $bulanawal)->where('status', $status)->orderBy('tanggal')->countAllResults();
     }
+    public function jml_peminjaman_bln_semua($tahun2, $bulanawal)
+    {
+
+        return $this->db->table('peminjaman')->where('year(tanggal)', $tahun2)->where('month(tanggal)', $bulanawal)->like('status')->orderBy('tanggal')->countAllResults();
+    }
 }

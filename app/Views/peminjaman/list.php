@@ -90,7 +90,6 @@
                 </div>
             </div>
         </div>
-    </div>
 </section>
 
 <div class="modal" tabindex="-1" role="dialog" id="modal1">
@@ -106,8 +105,17 @@
                 <form action="<?= base_url('peminjaman/update/'); ?>" method="post">
                     <input type="hidden" class="form-control" id="id_peminjaman" name="id_peminjaman" value="<?= $k['id_peminjaman']; ?>">
                     <input type="hidden" class="form-control datetimepicker" id="tanggal" name="tanggal" value="<?= $k['tanggal']; ?>">
-                    <input type="text" class="form-control" id="no_rm" name="no_rm" value="<?= $k['no_rm']; ?>" readonly>
-                    <input type="hidden" class="form-control" id="nama_pasien" name="nama_pasien" value="<?= $k['nama_pasien']; ?>" placeholder="">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="no_rm"> No. Rekam Medis</label>
+                            <input type="text" class="form-control" id="no_rm" name="no_rm" value="<?= $k['no_rm']; ?>" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="no_rm"> Nama Pasien</label>
+                            <input type="text" class="form-control" id="nama_pasien" name="nama_pasien" value="<?= $k['nama_pasien']; ?>" readonly>
+                        </div>
+                    </div>
+
                     <input type="hidden" class="form-control" id="nama_peminjam" name="nama_peminjam" value="<?= $k['nama_peminjam']; ?>" placeholder="">
                     <input type="hidden" id="keperluan" value="<?= $k['keperluan']; ?>" name=" keperluan">
 
@@ -120,13 +128,13 @@
                         </div>
                         <div class="form-group col-md-6 dikembalikan box">
                             <label>Tanggal Kembali</label>
-                            <input type="text" class="form-control datetimepicker  " id="tanggal_kembali" name="tanggal_kembali" value="">
+                            <input type="text" class="form-control datepicker  " id="tanggal_kembali" name="tanggal_kembali" value="">
                         </div>
                     </div>
             </div>
             <div class="modal-footer bg-whitesmoke br">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                <button type="submit" class="btn btn-primary">Ubah Data</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
             </div>
         </div>
     </div>

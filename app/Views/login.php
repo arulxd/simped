@@ -25,14 +25,11 @@
         <section class="section">
             <div class="d-flex flex-wrap align-items-stretch">
                 <div class="col-lg-4 col-md-6 col-12 order-lg-1 min-vh-100 order-2 bg-white">
-                    <div class=" p-4 m-1">
-                        <h4 class="text-dark font-weight-normal">Welcome to <span class="font-weight-bold">Simped</span></h4>
-                        <h5 class="text-dark font-weight-normal"><span class="font-weight-bold">Sistem Informasi Pengembalian Dokumen Rekam Medis</span></h5>
-
-
-
+                    <div class=" p-4 mt">
+                        <!-- <h4 class="text-dark font-weight-normal">Welcome to <span class="font-weight-bold">Simped</span></h4> -->
+                        <h5 class="text-dark font-weight-normal text-center mt-1"><span class="font-weight-bold">SISTEM INFORMASI PENGEMBALIAN DOKUMEN REKAM MEDIS </span></h5>
                         <form action="auth/cekLogin" method="post">
-                            <div class="form-group">
+                            <div class="form-group mt-5">
                                 <div class="d-block">
                                     <label for="username" class="control-label">Username</label>
                                 </div>
@@ -57,12 +54,9 @@
                                     Login
                                 </button>
                             </div>
-
                         </form>
-
                         <div class="text-center mt-5 text-small">
                             Copyright &copy; rmkoesma. Made with 💙
-
                         </div>
                         <br>
                         <br>
@@ -74,11 +68,6 @@
                         <br>
                         <br>
                         <br>
-                        <br>
-                        <br>
-
-
-
                     </div>
                 </div>
                 <div class="col-lg-8 col-12 order-lg-2 order-1 min-vh-100 background-walk-y position-relative overlay-gradient-bottom" data-background="<?= base_url() ?>/public/template/assets/img/unsplash/login-bg.jpg">

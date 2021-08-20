@@ -4,11 +4,10 @@
 
 <section class="section">
     <div class="section-header">
-        <h1>Laporan Peminjaman</h1>
+        <h1 style="font-size: 18px;">Laporan Peminjaman</h1>
     </div>
     <div class="section-body">
         <div class="row">
-
             <div class="col-lg-6" id="bulanfilter">
                 <div class="card">
                     <div class="card-header">
@@ -16,9 +15,6 @@
                     </div>
                     <form action="laporantest/filter" method="post" target="_blank">
                         <div class="card-body card-block">
-
-
-
                             <div class="row form-group" required>
                                 <div class="col col-md-2">
                                     <label for="select" class=" form-control-label">Jenis Laporan</label>

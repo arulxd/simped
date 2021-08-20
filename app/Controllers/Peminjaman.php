@@ -32,13 +32,6 @@ class Peminjaman extends BaseController
             'peminjaman' => $this->peminjamanModel->getDetail()
 
         ];
-
-
-        // $peminjamanModel = new \App\Models\peminjamanModel();
-        // $peminjamanModel = new peminjamanModel();
-        //  $peminjaman = $peminjamanModel->findAll();
-        //  dd($peminjaman);
-
         return view('peminjaman/list', $data);
     }
 
@@ -106,6 +99,7 @@ class Peminjaman extends BaseController
 
         return redirect()->to('peminjaman/list');
     }
+
     public function updatefull($id)
     {
 
