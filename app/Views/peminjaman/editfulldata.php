@@ -39,24 +39,36 @@
 
                                 <div class="form-group col-md-4">
                                     <label for="status">Keperluan</label>
-                                    <select class="form-control select" id="keperluan" value="<?= $peminjam['keperluan']; ?>" name=" keperluan" required>
-                                        <option value="klaim">klaim</option>
-                                        <option value="visum">Visum</option>
-                                        <option value="SKM">SKM</option>
-                                        <option value="lainnya">lainnya</option>
+                                    <select class="form-control" id="keperluan" name="keperluan" required>
+                                        <option value="Klaim" <?php if ($peminjam["keperluan"] == "Klaim") echo "selected"; ?>>Klaim</option>
+                                        <option value="Visum" <?php if ($peminjam["keperluan"] == "Visum") echo "selected"; ?>>Visum</option>
+                                        <option value="SKM" <?php if ($peminjam["keperluan"] == "SKM") echo "selected"; ?>>SKM</option>
+                                        <option value="lainnya" <?php if ($peminjam["keperluan"] == "lainnya") echo "selected"; ?>>Lainnya</option>
+
                                     </select>
                                 </div>
 
                                 <div class="form-group col-md-4">
                                     <label for="status">Status Dokumen</label>
-                                    <select class="form-control select" id="status" name="status" a="">
-                                        <option value="dipinjam">dipinjam</option>
-                                        <option value="dikembalikan">dikembalikan</option>
+                                    <select class="form-control select" id="status" name="status" value="<?= $peminjam['status']; ?>">
+                                        <option value="dipinjam" <?php if ($peminjam["status"] == "dipinjam") echo "selected"; ?>>dipinjam</option>
+                                        <option value="dikembalikan" <?php if ($peminjam["status"] == "dikembalikan") echo "selected"; ?>>dikembalikan</option>
                                     </select>
                                 </div>
+                                <?php if ($peminjam['status'] == 'dipinjam') {
+                                    echo '<input type="hidden" class="form-control datepicker  " id="tanggal_kembali" name="tanggal_kembali" value="">';
+                                } else {
+                                ?>
+                                    <div class="form-group col-md-4 box">
+                                        <label>Tanggal Kembali</label>
+                                        <input type="text" class="form-control datepicker" data-format="dd-mm-yyyy" id="tanggal_kembali" name="tanggal_kembali" value="<?= $peminjam["tanggal_kembali"]; ?>">
+                                    </div>
+                                <?php } ?>
+
                             </div>
                     </div>
                     <div class="card-footer">
+                        <input type="hidden" name="id_peminjaman" id="id_peminjaman" value="<?php echo $peminjam["id_peminjaman"]; ?>" />
                         <button class="btn btn-primary " id="">Ubah Data</button>
                         <a href="<?= site_url('peminjaman/list') ?>" class=" btn btn-danger">Kembali</a>
                     </div>
@@ -64,7 +76,9 @@
             </div>
         </div>
     </div>
+    </div>
 
 </section>
+
 
 <?= $this->endSection() ?>

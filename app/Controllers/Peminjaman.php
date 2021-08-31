@@ -103,19 +103,40 @@ class Peminjaman extends BaseController
     public function updatefull($id)
     {
 
-        $this->peminjamanModel->save([
-            'id_peminjaman' => $id,
-            'tanggal' => $this->request->getVar('tanggal'),
-            'no_rm' => $this->request->getVar('no_rm'),
-            'nama_pasien' => $this->request->getVar('nama_pasien'),
-            'nama_peminjam' => $this->request->getVar('nama_peminjam'),
-            'keperluan' => $this->request->getVar('keperluan'),
-            'status' => $this->request->getVar('status'),
+        $status = $this->request->getVar('status');
 
-        ]);
+        if ($status == 'dikembalikan') {
+            $this->peminjamanModel->save([
+                'id_peminjaman' => $id,
+                'tanggal' => $this->request->getVar('tanggal'),
+                'no_rm' => $this->request->getVar('no_rm'),
+                'nama_pasien' => $this->request->getVar('nama_pasien'),
+                'nama_peminjam' => $this->request->getVar('nama_peminjam'),
+                'keperluan' => $this->request->getVar('keperluan'),
+                'status' => $this->request->getVar('status'),
+                'tanggal_kembali' => $this->request->getVar('tanggal_kembali'),
+            ]);
 
-        session()->setFlashdata('pesan', 'Data Berhasil Diubah');
 
-        return redirect()->to('peminjaman/list');
+            session()->setFlashdata('pesan', 'Data Berhasil Diubah');
+
+            return redirect()->to('peminjaman/list');
+        } elseif ($status == 'dipinjam') {
+
+            $this->peminjamanModel->save([
+                'id_peminjaman' => $id,
+                'tanggal' => $this->request->getVar('tanggal'),
+                'no_rm' => $this->request->getVar('no_rm'),
+                'nama_pasien' => $this->request->getVar('nama_pasien'),
+                'nama_peminjam' => $this->request->getVar('nama_peminjam'),
+                'keperluan' => $this->request->getVar('keperluan'),
+                'status' => $this->request->getVar('status'),
+                'tanggal_kembali' => $this->request->getVar(''),
+            ]);
+
+            session()->setFlashdata('pesan', 'Data Berhasil Diubah');
+
+            return redirect()->to('peminjaman/list');
+        }
     }
 }

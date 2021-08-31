@@ -41,7 +41,7 @@
                             <div class="row col-12 form-group" id="divbulan">
                                 <div class="col-md-2 col-form-label">Bulan</div>
                                 <div class="col-md-4">
-                                    <select id="bulanawal" name="bulanawal" class="form-control" required>
+                                    <select id="bulanawal" name="bulanawal" class="form-control">
                                         <option value="">Pilih</option>
                                         <option value="1">Januari</option>
                                         <option value="2">Februari</option>
@@ -68,8 +68,6 @@
                                     </select>
                                 </div>
                             </div>
-
-
 
                             <div class="row form-group">
                                 <div class="col col-md-2">
@@ -101,13 +99,15 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $('#periode').val(1);
+        $("#bulanawal").prop('required', true)
         $('#divbulan').show()
         $('#divtahun').show()
+
 
         $('#periode').change(function() {
             var val = $(this).val();
             if (val == 2) {
-
+                $("#bulanawal").prop('required', false)
                 $('#divbulan').hide()
                 $('#divtahun').show()
 

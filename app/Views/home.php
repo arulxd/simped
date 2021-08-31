@@ -97,20 +97,18 @@
                 </div>
             </div>
         </div>
-        <?php foreach ($grafik as $grafik => $value) {
-            $bln[] = $value['id_peminjaman'];
-            $jml[] = $value['tanggal'];
-        }
-
-        ?>
         <div class="col-12 col-md-5 col-lg-5">
             <div class="card">
                 <div class="card-header">
-                    <h4>Bar Chart</h4>
+                    <h4>Update Versi</h4>
                 </div>
-
                 <div class="card-body">
-                    <canvas id="myChart2"></canvas>
+                    <ul class="list-unstyled">
+                        <li class="" style="font-weight: bold;">V.0.0.1 </li>
+
+                        <li>fitur aplikasi akan diupdate secara berkala.</li>
+
+                    </ul>
                 </div>
             </div>
         </div>

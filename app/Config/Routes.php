@@ -40,7 +40,7 @@ $routes->get('laporantest', 'Laporantest::index');
 $routes->get('peminjaman', 'Peminjaman::list');
 $routes->get('/peminjaman/edit/(:segment)', 'Peminjaman::edit/$1');
 $routes->delete('peminjaman', 'Peminjaman::delete');
-$routes->get('peminjaman', 'Peminjaman::detail/$1');
+
 
 /*
  * --------------------------------------------------------------------

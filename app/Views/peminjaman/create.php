@@ -59,7 +59,6 @@
 
                                     </select>
                                 </div>
-                                <input type="hidden" id="tanggal_kembali" name="tanggal_kembali">
                             </div>
                     </div>
                     <div class="card-footer">
