@@ -106,8 +106,12 @@
                     <ul class="list-unstyled">
                         <li class="" style="font-weight: bold;">V.0.0.1 </li>
 
-                        <li>fitur aplikasi akan diupdate secara berkala.</li>
+                        <li>Fitur aplikasi akan diupdate secara berkala.</li>
+                        <li class="" style="font-weight: bold;">V.0.1.1 </li>
 
+                        <li style="font-weight: bold; ">penambahan fitur :</li>
+                        <li style="font-style: italic;">8 Januari 2022 </li>
+                        <li>Pencatatan penggantian dokumen rusak </li>
                     </ul>
                 </div>
             </div>

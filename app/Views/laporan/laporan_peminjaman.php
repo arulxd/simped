@@ -23,6 +23,7 @@
                                     <select class="form-control" id="nilaifilter" name="nilaifilter" required>
                                         <option value="1" name="nilaifilter">Data Peminjaman Dokumen</option>
                                         <option value="3" name="nilaifilter">Jumlah Peminjaman Dokumen</option>
+                                        <option value="4" name="nilaifilter">Jumlah Dokumen Rusak</option>
                                     </select>
                                 </div>
                             </div>
@@ -69,7 +70,7 @@
                                 </div>
                             </div>
 
-                            <div class="row form-group">
+                            <div class="row form-group" id="divstatus">
                                 <div class="col col-md-2">
                                     <label for="select" class=" form-control-label">Status Peminjaman</label>
                                 </div>
@@ -118,6 +119,15 @@
 
             }
 
+        })
+        $('#nilaifilter').change(function() {
+            var val = $(this).val();
+            if (val == 4) {
+                $('#divstatus').hide()
+
+            } else {
+                $('#divstatus').show()
+            }
         })
         $('#status').val('dipinjam');
 

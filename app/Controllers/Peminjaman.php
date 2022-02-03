@@ -18,8 +18,11 @@ class Peminjaman extends BaseController
 
     public function index()
     {
+
+        session();
         $data = [
-            'peminjaman' => $this->dashboardModel->data_terakhir()
+            'peminjaman' => $this->dashboardModel->data_terakhir(),
+            'validation' => \Config\Services::validation()
         ];
 
         return view('peminjaman/create', $data);
@@ -29,7 +32,7 @@ class Peminjaman extends BaseController
     {
 
         $data = [
-            'peminjaman' => $this->peminjamanModel->getDetail()
+            'peminjaman' => $this->peminjamanModel->alldata_join()
 
         ];
         return view('peminjaman/list', $data);
@@ -54,13 +57,28 @@ class Peminjaman extends BaseController
 
     public function save()
     {
+        if (!$this->validate([
+            'no_rm' => [
+                'rules' => 'required|numeric',
+                'errors' => [
+                    'required' => 'Nomor RM Harus diisi',
+                    'numeric' => 'Hanya Berisi Angka'
+                ]
+            ]
+        ])) {
+            $validation = \Config\Services::validation();
+            return redirect()->to('peminjaman')->withInput()->with('validation', $validation);
+        }
+
         $this->peminjamanModel->save([
             'tanggal' => $this->request->getVar('tanggal'),
+            'id_user' => session()->get('id_user'),
             'no_rm' => $this->request->getVar('no_rm'),
             'nama_pasien' => $this->request->getVar('nama_pasien'),
             'nama_peminjam' => $this->request->getVar('nama_peminjam'),
             'keperluan' => $this->request->getVar('keperluan'),
             'status' => $this->request->getVar('status'),
+
 
         ]);
 

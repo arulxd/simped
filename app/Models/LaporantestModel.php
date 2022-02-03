@@ -10,7 +10,7 @@ class laporantestModel extends Model
 
     public function getTahun()
     {
-        $query = $this->db->query("SELECT YEAR(tanggal) AS tahun FROM peminjaman GROUP BY YEAR(tanggal) ORDER BY YEAR(tanggal) ASC");
+        $query = $this->db->query("SELECT YEAR(tanggal) AS tahun FROM peminjaman and dokumenrusak GROUP BY YEAR(tanggal) ORDER BY YEAR(tanggal) ASC");
 
         return $query->getResult();
     }
@@ -61,5 +61,10 @@ class laporantestModel extends Model
     {
 
         return $this->db->table('peminjaman')->where('year(tanggal)', $tahun2)->where('month(tanggal)', $bulanawal)->like('status')->orderBy('tanggal')->countAllResults();
+    }
+
+    public function jml_peminjaman_dokumenrusak_thn()
+    {
+        return $this->db->table('dokumenrusak')->like('nama_pengganti')->countAllResults();
     }
 }

@@ -12,7 +12,7 @@
             <div class="section-body">
                 <div class="card">
                     <div class="card-header">
-                        <h4> Tambah Data Peminjaman Dokumen</h4>
+                        <h4> Tambah Data Penggantian Dokumen Rusak</h4>
                         <?php if (session()->getFlashdata('pesan')) : ?>
                             <div class="alert alert-success" role="alert">
                                 <?= session()->getFlashdata('pesan'); ?>
@@ -21,45 +21,31 @@
                     </div>
 
                     <div class="card-body">
-                        <form action="peminjaman/save" method="post">
+                        <form action="dokumenrusak/save" method="post">
                             <?= csrf_field(); ?>
                             <div class="form-row">
                                 <div class="form-group col-md-4">
-                                    <label>Tanggal Peminjaman</label>
+                                    <label>Tanggal Penggantian</label>
                                     <input type="text" class="form-control datepicker" data-format="dd-mm-yyyy" id="tanggal" name="tanggal" required>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="norm">No. Rekam Medis</label>
-                                    <input type="text" class="form-control <?= ($validation->hasError('no_rm')) ? 'is-invalid' : ''; ?>" id="no_rm" name="no_rm" value="<?= old('nama_pasien'); ?>" autofocus>
-                                    <div class="invalid-feedback">
-                                        <?= $validation->getError('no_rm'); ?>
-                                    </div>
+                                    <input type="text" class="form-control" id="no_rm" name="no_rm" autofocus required>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="nama">Nama Pasien</label>
-                                    <input type="text" class="form-control" id="nama_pasien" name="nama_pasien" placeholder="" value="<?= old('nama_pasien'); ?>" required>
+                                    <input type="text" class="form-control" id="nama_pasien" name="nama_pasien" placeholder="" required>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-4">
-                                    <label for="peminjam">Nama Peminjam</label>
-                                    <input type="text" class="form-control" id="nama_peminjam" name="nama_peminjam" placeholder="" value="<?= old('nama_pasien'); ?>" required>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="status">Keperluan</label>
-                                    <select class="form-control select2" id="keperluan" name="keperluan" required>
-                                        <option>Klaim</option>
-                                        <option>Visum</option>
-                                        <option>SKM</option>
-                                        <option>lainnya</option>
-
-                                    </select>
+                                    <label for="nama_pengganti">Nama Pengganti</label>
+                                    <input type="text" class="form-control" id="nama_pengganti" name="nama_pengganti" placeholder="" required>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="status">Status Dokumen</label>
                                     <select class="form-control select2" id="status" name="status" required>
-                                        <option>Dipinjam</option>
-
+                                        <option>Rusak</option>
                                     </select>
                                 </div>
                             </div>
@@ -70,6 +56,7 @@
                 </div>
             </div>
         </div>
+
 
         <div class="col-12 col-md-6 col-lg-6">
             <div class="card">
@@ -84,11 +71,12 @@
                                 <th>Tanggal</th>
                                 <th>Nomor RM</th>
                                 <th>Nama Pasien</th>
-                                <th>Nama Peminjam</th>
+                                <th>Nama status</th>
+                                <th>Nama Pengganti</th>
                             </tr>
                             <tr>
                                 <?php $i = 1; ?>
-                                <?php foreach ($peminjaman->getResult('array')  as $k) : ?>
+                                <?php foreach ($dokumenrusak->getResult('array')  as $k) : ?>
                             <tr>
                                 <td>
                                     <?= $i++; ?>
@@ -96,7 +84,8 @@
                                 <td><?= $k['tanggal']; ?></td>
                                 <td><?= $k['no_rm']; ?></td>
                                 <td><?= $k['nama_pasien']; ?></td>
-                                <td><?= $k['nama_peminjam']; ?></td>
+                                <td><?= $k['status']; ?></td>
+                                <td><?= $k['nama_pengganti']; ?></td>
                             </tr>
                         <?php endforeach; ?>
                         </table>
@@ -105,6 +94,7 @@
             </div>
         </div>
     </div>
+
 </section>
 <script>
     window.setTimeout(function() {

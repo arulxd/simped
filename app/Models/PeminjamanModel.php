@@ -27,4 +27,10 @@ class peminjamanModel extends Model
     {
         return $this->db->table('peminjaman')->update($data, ['id_peminjaman' => $id]);
     }
+
+    public function alldata_join()
+    {
+        return $this->db->table('peminjaman')->join('user', 'user.id_user = peminjaman.id_user', 'left')
+            ->orderBy('id_peminjaman', 'DESC')->get()->getResultArray();
+    }
 }

@@ -10,7 +10,9 @@ class Auth extends BaseController
 
 	public function __construct()
 	{
+		helper('form');
 		$this->AuthModel = new AuthModel();
+		$this->form_validation = \Config\Services::validation();
 	}
 
 	public function index()
@@ -54,7 +56,7 @@ class Auth extends BaseController
 				'errors' => [
 					'required' => '{field} wajib di isi '
 				]
-			],
+			]
 		])) {
 
 			$username = $this->request->getVar('username');
@@ -62,11 +64,13 @@ class Auth extends BaseController
 			$cek = $this->AuthModel->login($username, $password);
 			if ($cek) {
 				session()->set('log', true);
+				session()->set('id_user', $cek['id_user']);
 				session()->set('username', $cek['username']);
 				session()->set('level', $cek['level']);
-
 				return redirect()->to('home');
 			} else {
+
+				session()->setFlashdata('errors', $this->form_validation->getErrors());
 				return redirect()->to('auth');
 			}
 		}

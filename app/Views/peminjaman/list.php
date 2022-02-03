@@ -37,7 +37,9 @@
                                         <th>Status</th>
                                         <th>Keperluan</th>
                                         <th>Tanggal Kembali</th>
-
+                                        <?php if (session()->get('level') == 1) { ?>
+                                            <th>User</th>
+                                        <?php } ?>
                                         <th>Tindakan</th>
                                     </tr>
                                 </thead>
@@ -64,6 +66,10 @@
                                             </td>
                                             <td><?= $k['keperluan']; ?></td>
                                             <td><?= $k['tanggal_kembali']; ?></td>
+
+                                            <?php if (session()->get('level') == 1) { ?>
+                                                <td><?= $k['username']; ?></td>
+                                            <?php } ?>
 
                                             <td>
 
@@ -181,18 +187,16 @@
         $('#table-2').DataTable({
             // "serverSide": true,
             "responsive": true,
-            "processing": true,
+            "processing": false,
 
             "order": [
                 [1, "desc"]
             ],
 
             "columnDefs": [{
-
-                "sortable": true,
-                "visible": false,
-                "searchable": false
-            }],
+                "targets": 0, //first column
+                "orderable": false, //set not orderable
+            }]
 
 
         });
@@ -200,32 +204,7 @@
     });
 </script>
 
-<!-- <script type="text/javascript">
-    var table;
-    $(document).ready(function() {
 
-        //datatables
-        table = $('#table-2').DataTable({
-
-            "processing": true,
-            "serverSide": true,
-            "order": [],
-
-            "ajax": {
-                "url": "<?= site_url('peminjaman/list') ?>",
-                "type": "POST"
-            },
-
-
-            "columnDefs": [{
-                "targets": [0],
-                "orderable": false,
-            }, ],
-
-        });
-
-    });
-</script> -->
 
 <script>
     window.setTimeout(function() {

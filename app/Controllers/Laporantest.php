@@ -20,7 +20,7 @@ class Laporantest extends BaseController
 
         $data = [
             'tahun' => $this->laporantestModel->getTahun(),
-            // 'status' => $this->laporanModel->getStatus()
+
         ];
 
         return view('laporan/laporan_peminjaman', $data);
@@ -72,6 +72,18 @@ class Laporantest extends BaseController
 
             return view('laporan/print_laporan_data_kembali', $data);
 
+            // LAPORAN DATA PEMINJAMAN DOKUMEN PER TAHUN  //
+        } elseif (($nilaifilter == 1) and ($periode == 2) and ($status == 'dikembalikan')) {
+
+            return view('laporan/tahun_belumfix');
+        } elseif (($nilaifilter == 1) and ($periode == 2) and ($status == 'dipinjam')) {
+
+            return view('laporan/tahun_belumfix');
+        } elseif (($nilaifilter == 1) and ($periode == 2) and ($status == '')) {
+
+            return view('laporan/tahun_belumfix');
+
+
             // LAPORAN JUMLAH PEMINJAMAN DOKUMEN PER BULAN  //
         } elseif (($nilaifilter == 3) and ($periode == 1) and ($status == '')) {
 
@@ -108,6 +120,7 @@ class Laporantest extends BaseController
             ];
 
             return view('laporan/jml_dokumen_bln', $data);
+
 
             // LAPORAN JUMLAH PEMINJAMAN DOKUMEN PER TAHUN  //
 
@@ -147,6 +160,18 @@ class Laporantest extends BaseController
             ];
 
             return view('laporan/jml_dokumen_thn', $data);
+        } elseif ($nilaifilter == 4 and ($periode == 2)) {
+            $data = [
+
+                'title' =>  "Laporan Jumlah Dokumen Rusak Tahunan",
+                'subtitle' =>  ' Tahun : ' . $tahun2,
+                'tahun' => $tahun2,
+
+                'datafilter' => $this->laporantestModel->jml_peminjaman_dokumenrusak_thn(),
+
+            ];
+
+            return view('laporan/jml_dokumenrusak', $data);
         }
     }
 }
