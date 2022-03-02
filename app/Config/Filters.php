@@ -45,7 +45,8 @@ class Filters extends BaseConfig
 				'peminjaman', 'peminjaman/*',
 				'laporan', 'laporan/*',
 				'laporantest', 'laporantest/*',
-				'dokumenrusak', 'dokumenrusak/*'
+				'dokumenrusak', 'dokumenrusak/*',
+				'assembling', 'assembling/*'
 			]]
 		],
 	];

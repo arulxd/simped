@@ -71,7 +71,7 @@
                                 <th>Tanggal</th>
                                 <th>Nomor RM</th>
                                 <th>Nama Pasien</th>
-                                <th>Nama status</th>
+                                <th>Status</th>
                                 <th>Nama Pengganti</th>
                             </tr>
                             <tr>

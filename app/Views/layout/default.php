@@ -29,13 +29,17 @@
 
 
     <script src="<?= base_url() ?>/public/template/node_modules/jquery/dist/jquery.min.js"></script>
-
+    <script src="<?= base_url() ?>/public/template/node_modules/moment/min/moment-with-locales.js"></script>
     <!-- <script src="<?= base_url() ?>/public/template/node_modules/datatables.net-responsive/js/dataTables.responsive.min.js"></script> -->
     <script src="<?= base_url() ?>/public/template/node_modules/datatables/media/js/jquery.dataTables.min.js"></script>
     <script src="<?= base_url() ?>/public/template/node_modules/datatables.net-bs4/js/dataTables.bootstrap4.js"></script>
     <script src="<?= base_url() ?>/public/template/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="<?= base_url() ?>/public/template/node_modules/chart.js/dist/Chart.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
+
     <!-- <script src="<?= base_url() ?>/template/assets/js/page/modules-chartjs.js"></script> -->
+
 </head>
 
 <body>
@@ -113,7 +117,8 @@
     <script src="<?= base_url() ?>/public/template/node_modules/popper.js/dist/umd/popper.min.js"></script>
 
     <script src="<?= base_url() ?>/public/template/node_modules/jquery.nicescroll/dist/jquery.nicescroll.min.js"></script>
-    <script src="<?= base_url() ?>/public/template/node_modules/moment/min/moment.min.js"></script>
+
+
     <script src="<?= base_url() ?>/public/template/assets/js/stisla.js"></script>
 
     <!-- JS Libraies -->

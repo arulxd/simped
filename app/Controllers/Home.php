@@ -21,7 +21,8 @@ class Home extends BaseController
             'jml_dokumen_kembali' => $this->dashboardModel->jml_dokumen_kembali(),
             'jml_dokumen' => $this->dashboardModel->jml_dokumen(),
             'peminjaman' => $this->dashboardModel->data_terakhir(),
-            'grafik' => $this->dashboardModel->grafik_peminjaman()
+            'grafik' => $this->dashboardModel->grafik_peminjaman(),
+            'jml_dokumen_rusak' => $this->dashboardModel->jml_dokumen_rusak()
 
         ];
 

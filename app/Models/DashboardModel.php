@@ -18,6 +18,10 @@ class dashboardModel extends Model
     {
         return $this->db->table('peminjaman')->countAllResults();
     }
+    public function jml_dokumen_rusak()
+    {
+        return $this->db->table('dokumenrusak')->countAllResults();
+    }
 
     public function data_terakhir()
     {
